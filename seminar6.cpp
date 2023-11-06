@@ -13,9 +13,9 @@ double pret;
 bool electronica;
 int* numar_cuvinte;
 
-Carte(){}
-public:
 
+public:
+Carte(){}
 Carte(char* _titlu, char* _autor, int _numar_pagini, double _pret, bool _electronica, int* _numar_cuvinte) : titlu(_titlu), autor(_autor), numar_pagini(_numar_pagini), pret(_pret), electronica(_electronica), numar_cuvinte(_numar_cuvinte)
 {
 
