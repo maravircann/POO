@@ -14,7 +14,6 @@ public:
 	Date(int d, int m, int y) : day(d), month(m), year(y) {}
 };
 
-//has a
 class Person {
 	string name;
 	string CNP;
@@ -38,7 +37,6 @@ public:
 			this->addresses[i] = addresses[i];
 		}
 	}
-	//Constructor de copiere
 	Person(const Person& p) : name(p.name), CNP(p.CNP), addrCount(p.addrCount) {
 		this->birthday = p.birthday;
 		this->addresses = new string[p.addrCount];
@@ -46,7 +44,6 @@ public:
 			this->addresses[i] = p.addresses[i];
 		}
 	}
-	//Operator =
 	Person& operator= (const Person& p) {
 		if (this == &p)
 			delete[] addresses;
@@ -61,7 +58,6 @@ public:
 		}
 		return *this;
 	}
-	//Destructor
 	~Person() {
 		delete[] addresses;
 	}
@@ -72,8 +68,7 @@ public:
 
 };
 
-//is a derivare, student mosteneste tot din persoana
-class Student : public Person {
+class Student : public Person { //clasa student este derivata din clasa Persoana
 	int registrationNr;
 	float* grades;
 	int nrGrades;
@@ -95,7 +90,6 @@ public:
 		}
 	}
 
-	//constr de copiere
 	Student(const Student& s) :
 		Person(s), nrGrades(s.nrGrades), scolarship(s.scolarship) {
 		this->registrationNr = s.registrationNr;
@@ -104,7 +98,7 @@ public:
 			this->grades[i] = s.grades[i];
 		}
 	}
-	//op=
+	
 	Student& operator=(const Student& s) {
 		if (this != &s) {
 			delete[] this->grades;
@@ -145,8 +139,6 @@ public:
 	}
 };
 
-
-//Has a 1 la mai multi
 class University {
 	string name = "";
 	string address = "";
@@ -237,9 +229,6 @@ int main() {
 	students[2] = s3;
 
 	University u1("ASE", "Bucuresti", students, 3);
-	//nu pot accesa cand e protected
-	//cout << p1.name;
-
 	Person** all = new Person * [3];
 	Person* person = new Person("Popescu Andrei", "1920505252516", d2, addresses, 3);
 	Person* student = new Student("Andresan Andrei", "1920505252516", d2, addresses, 3, 124, grades, 5, true);
